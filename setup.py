@@ -4,7 +4,6 @@ setup(
     name = "PyBytes",
     version = "1.0.0",
     
-    package_dir={"": "src"},
     packages = ["pybytes"],
     install_requires = [],
     
