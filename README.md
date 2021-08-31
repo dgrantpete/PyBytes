@@ -13,7 +13,7 @@ Byte(input_data, bit_count)
 * ```input_data``` is the value to be stored in the byte, converted to an unsigned integer and stored in binary. It should be either a positive integer (i.e. ```128```) or a string that can be implicitly converted to a positive integer (i.e. ```"128"``` or ```"0b100000000"```).
 * ```bit_count``` an optional paramater that states the length of the byte, in bits. Leading zeros will be added to the front of the binary representation of ```input_data``` if ```bit_count``` is longer than required. The default argument is ```None```; this will calculate the length of the byte automatically based on input value.
 
-### Python Standard Methods
+### Python Built-In Methods
 * ```str(Byte)```: returns a string with the binary literal of given byte, including leading zeros. Also called implicitly when using ```print()```.
 ```
 byte = Byte(10, 8)
@@ -46,4 +46,18 @@ for bit in byte:
 >>> False
 >>> True
 >>> False
+```
+* The ```+```, ```-```, ```*```, and ```/``` operators are also supported and can be used with the ```=``` operator to reassign binary value that Byte represents. *(Note that both the ```/``` and ```//``` operators function as floor division to ensure an integer is returned instead of a float.)*
+* The bitwise operators ```<<``` and ```>>``` function as expected, returning a ```Byte``` object with the bits shifted to the left or right respectively. Since the size of each Byte is fixed (unless changed implicitly), shifting significant bits beyond the size of the Byte will be discarded. Leading zeros will also be preserved.
+
+**Standard bit shift (not using PyBytes):**
+```
+standard_byte = 8
+print(bin(standard_byte))
+
+>> 0b100
+standard_byte <<= 2
+print(bin(standard_byte))
+
+>> 0b10000
 ```
