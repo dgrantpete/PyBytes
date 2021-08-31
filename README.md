@@ -18,8 +18,32 @@ Byte(input_data, bit_count)
 ```
 byte = Byte(10, 8)
 print(byte)
+
 >>> 0b00001010
 ```
 * ```int(Byte)```: returns value of unsigned integer the byte is storing.
 * ```len(Byte)```: returns length of byte, in bits, as an integer.
-* ```Byte[...]```: Byte object can be both sliced and accessed by index. Sliced Bytes will return a new ```Byte``` object containing the sliced indexes. Accessing by index will return a boolean value corresponding to the value at that index (```1 = True``` and ```0 = False```).
+* ```Byte[...]```: can be both sliced and accessed by index. Sliced Bytes will return a new ```Byte``` object containing the sliced indexes. Accessing by index will return a boolean value corresponding to the value at that index (```1 = True``` and ```0 = False```).
+```
+byte = Byte(10)
+print(byte)
+
+>>> 0b1010
+print(byte[2:0])
+
+>>> 0b10
+print(byte[0], byte[1])
+
+>>> True False
+```
+* ```for ... in Byte```: can return an iterator that returns a boolean value for each bit.
+```
+byte = Byte(10)
+for bit in byte:
+  print(bit)
+
+>>> True
+>>> False
+>>> True
+>>> False
+```
