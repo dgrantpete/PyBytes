@@ -107,3 +107,7 @@ print(byte)
 *More bitwise operators and other built-in functionality planned very soon!*
 
 **Please feel free to create a Pull Request, submit an Issue, or email me at dgrantpete@gmail.com with any suggestions, bugs, or ideas!**
+
+
+
+
