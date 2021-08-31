@@ -71,7 +71,7 @@ class Byte:
         
     def __getitem__(self, key):
         if isinstance(key, int):
-            return bool(self.bin_data[key])
+            return bool(int(self.bin_data[key]))
         if isinstance(key, slice):
             start, stop, step = key.indices(len(self.bin_data))
             binary_slice = ""
