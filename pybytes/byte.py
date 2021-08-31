@@ -64,14 +64,14 @@ class Byte:
         return self.raw_data
 
     def __iter__(self):
-        return (int(byte) for byte in self.bin_data)
+        return (bool(int(byte)) for byte in self.bin_data)
 
     def __reversed__(self):
-        return (int(byte) for byte in reversed(self.bin_data))
+        return (bool(int(byte)) for byte in reversed(self.bin_data))
         
     def __getitem__(self, key):
         if isinstance(key, int):
-            return int(self.bin_data[key])
+            return bool(self.bin_data[key])
         if isinstance(key, slice):
             start, stop, step = key.indices(len(self.bin_data))
             binary_slice = ""
@@ -87,7 +87,12 @@ class Byte:
     
     def __mul__(self, operand):
         return Byte(self.raw_data * operand, self.bit_len)
+
+    def __truediv__(self, operand):
+        return Byte(self.raw_data // operand, self.bit_len)
     
+    __floordiv__ = __truediv__
+
     def bit_shift(self, amount, direction):
         shifted_bits = ""
         preserved_bits= ""
