@@ -5,7 +5,7 @@ with open('README.md') as f:
 
 setup(
     name = "PyBytes",
-    version = "1.0.0",
+    version = "1.0.1",
     
     packages = ["pybytes"],
     install_requires = [],
